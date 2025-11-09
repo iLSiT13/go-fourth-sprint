@@ -45,7 +45,7 @@ func parsePackage(data string) (int, time.Duration, error) {
 }
 
 func DayActionInfo(data string, weight, height float64) string {
-
+	//
 	steps, duration, err := parsePackage(data)
 	if err != nil {
 		log.Println(err)
