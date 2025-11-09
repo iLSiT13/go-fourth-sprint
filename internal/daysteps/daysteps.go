@@ -2,6 +2,7 @@ package daysteps
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 	"strings"
 	"time"
@@ -21,7 +22,7 @@ func parsePackage(data string) (int, time.Duration, error) {
 	part := strings.Split(data, ",")
 
 	if len(part) != 2 {
-		return 0, 0, fmt.Errorf("длина слайса не равна '2'!")
+		return 0, 0, fmt.Errorf("длина слайса не равна 2")
 	}
 
 	steps, err := strconv.Atoi(part[0])
@@ -29,7 +30,7 @@ func parsePackage(data string) (int, time.Duration, error) {
 		return 0, 0, err
 	}
 	if steps <= 0 {
-		return 0, 0, fmt.Errorf("Ошибка: количество шагов должно быть больше '0'!")
+		return 0, 0, fmt.Errorf("количество шагов должно быть больше 0")
 	}
 
 	duration, err := time.ParseDuration(part[1])
@@ -47,7 +48,7 @@ func DayActionInfo(data string, weight, height float64) string {
 
 	steps, duration, err := parsePackage(data)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return ""
 	}
 
